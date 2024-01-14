@@ -256,6 +256,29 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Additional Plugins
 lvim.plugins = {
     {
+
+        "epwalsh/obsidian.nvim",
+        version= "*", -- recommended, use latest release instead of latest commit
+        dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+
+            -- see below for full list of optional dependencies 👇
+        },
+        config = function()
+            require("obsidian").setup({
+                workspaces = {
+                    {
+                        name = "personal",
+                        path = "~/Documents/TheVault",
+                    },
+                },
+
+                -- see below for full list of options 👇
+            })
+        end,
+    },
+    {
         "reasonml-editor/vim-reason-plus",
     },
     -- shading in inactive windows
